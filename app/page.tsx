@@ -1,6 +1,8 @@
 'use client'
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { BookOpen, FolderHeart, Lightbulb, Phone, User } from "lucide-react";
 
 export default function Home() {
   const [isCentered, setIsCentered] = useState(false);
@@ -67,16 +69,41 @@ export default function Home() {
       {isCentered && (
         <div className={`fixed inset-0 z-50 flex justify-center items-center bg-white transition-opacity duration-700 ease-in-out ${isCentered ? "opacity-80" : "opacity-0"}`}>
           <div className="relative">
-            <Image
-              src="/Itachi-Uchiha-Naruto.avif"  
-              alt="Profile Picture"
-              width={600}
-              height={600}
-              className="max-w-full h-auto object-cover rounded-lg  transition-transform duration-700 ease-in-out"
-            />
-            <h1 className="absolute text-blue-800 bg-white px-4 py-1 rounded-full text-[13px] top-2 left-2">Muhammad Maaz</h1>
-            <h1 className="absolute text-white px-4 py-1 rounded-full text-[13px] top-8 ">Full Stack Developer</h1>
-          </div>
+  <Image
+    src="/Itachi-Uchiha-Naruto.avif"
+    alt="Profile Picture"
+    width={800}
+    height={800}
+    className="max-w-full h-auto object-cover rounded-lg transition-transform duration-700 ease-in-out"
+  />
+  <h1 className="absolute text-blue-800 bg-white px-4 py-1 rounded-full text-[13px] top-4 left-4">Muhammad Maaz</h1>
+  <h1 className="absolute text-white px-4 py-1 rounded-full text-[13px] top-12 left-2">Full Stack Developer</h1>
+  
+  {/* Icon Section */}
+  <div className="absolute bottom-4 left-4 flex space-x-12 text-white">
+    <Link href="/" className="flex flex-col items-center text-[10px]">
+      <User className="p-1" size={40} />
+      About Me
+    </Link>
+    <Link href="/" className="flex flex-col items-center text-[10px]">
+      <FolderHeart className="p-1" size={40} />
+      Resume
+    </Link>
+    <Link href="/" className="flex flex-col items-center text-[10px]">
+      <Lightbulb className="p-1" size={40} />
+      Portfolio
+    </Link>
+    <Link href="/" className="flex flex-col items-center text-[10px]">
+      <BookOpen className="p-1" size={40} />
+      Blog
+    </Link>
+    <Link href="/" className="flex flex-col items-center text-[10px]">
+      <Phone className="p-1" size={40} />
+      Contact
+    </Link>
+  </div>
+</div>
+
             <button
               onClick={toggleImageCenter}
               className="absolute top-[10%] right-[20%] bg-[#032668] text-white text-lg px-4 py-2 rounded-full shadow-lg hover:bg-[#032f68] transition-colors duration-300"
