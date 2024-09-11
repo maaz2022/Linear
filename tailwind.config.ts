@@ -12,8 +12,20 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      rotate: {
+        'x-45': 'rotateX(45deg)',    // Custom rotateX
+        'y-45': 'rotateY(45deg)',    // Custom rotateY
+        'z-45': 'rotateZ(45deg)',    // Custom rotateZ
+        'x-90': 'rotateX(90deg)',    // More rotation values
+        'y-90': 'rotateY(90deg)',
+        'z-90': 'rotateZ(90deg)',
+        'x-180': 'rotateX(180deg)',
+        'y-180': 'rotateY(180deg)',
+        'z-180': 'rotateZ(180deg)',
+      }
     },
   },
   plugins: [],
 };
+
 export default config;
