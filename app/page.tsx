@@ -13,15 +13,15 @@ export default function Home() {
             I am a website developer, based in Pakistan. I like to feed my cat in my spare time and build web projects that matter.
           </p>
           <div className="flex space-x-2">
-            <Link
-              href="/"
+            <a
+              href="/MuhammadMaaz.pdf"
               className="group relative inline-block px-6 py-4 border-2 border-[#032668] text-[#032668] text-[13px] font-semibold overflow-hidden"
             >
               <span className="relative z-10 group-hover:text-white transition-colors duration-300">
                 Download CV
               </span>
               <span className="absolute inset-0 bg-[#032668] scale-x-0 origin-left transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
-            </Link>
+            </a>
 
             <Link
               href="/"
