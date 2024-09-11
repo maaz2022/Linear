@@ -14,7 +14,7 @@ export default function Home() {
           </p>
           <div className="flex space-x-2">
             <a
-              href="/MuhammadMaaz.pdf"
+              href="/MuhammadMaaz.pdf" download
               className="group relative inline-block px-6 py-4 border-2 border-[#032668] text-[#032668] text-[13px] font-semibold overflow-hidden"
             >
               <span className="relative z-10 group-hover:text-white transition-colors duration-300">
