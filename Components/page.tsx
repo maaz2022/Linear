@@ -5,6 +5,7 @@ import Image from "next/image";
 export default function Home() {
   const [isCentered, setIsCentered] = useState(false);
 
+  // Function to toggle the image position
   const toggleImageCenter = () => {
     setIsCentered(!isCentered);
   };
@@ -35,7 +36,8 @@ export default function Home() {
               <span className="absolute inset-0 bg-[#032668] scale-x-0 origin-left transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
             </a>
 
-            <button
+            {/* Discover button with click event */}
+          <button
               onClick={toggleImageCenter}
               className="group relative inline-block px-8 py-4 border-2 border-[#032668] text-[#032668] text-[13px] font-semibold ml-2 overflow-hidden"
             >
@@ -48,6 +50,7 @@ export default function Home() {
         </div>
 
         <div className="w-1/2 flex justify-center items-center">
+          {/* Image with click event */}
           <Image
             onClick={toggleImageCenter}
             src="/Itachi-Uchiha-Naruto.avif"
@@ -65,19 +68,19 @@ export default function Home() {
 
       {/* Full-Screen Image with Close Button */}
       {isCentered && (
-        <div className={`fixed inset-0 z-50 flex justify-center items-center bg-white transition-opacity duration-700 ease-in-out ${isCentered ? "opacity-80" : "opacity-0"}`}>
+        <div className={`fixed inset-0 z-50 flex justify-center items-center bg-white transition-opacity duration-700 ease-in-out ${isCentered ? "opacity-100" : "opacity-0"}`}>
           <div className="relative">
+            {/* Centered Image */}
             <Image
-              src="/Itachi-Uchiha-Naruto.avif"  
+              src="/Itachi-Uchiha-Naruto.avif"
               alt="Profile Picture"
               width={600}
               height={600}
-              className="max-w-full h-auto object-cover rounded-lg  transition-transform duration-700 ease-in-out"
+              className="max-w-full h-auto object-cover rounded-lg shadow-3d transition-transform duration-700 ease-in-out"
             />
-            <h1 className="absolute text-blue-800 bg-white px-4 py-1 rounded-full text-[13px] top-2 left-2">Muhammad Maaz</h1>
-            <h1 className="absolute text-white px-4 py-1 rounded-full text-[13px] top-8 ">Full Stack Developer</h1>
+            {/* Close Button */}
           </div>
-            <button
+                   <button
               onClick={toggleImageCenter}
               className="absolute top-[10%] right-[20%] bg-[#032668] text-white text-lg px-4 py-2 rounded-full shadow-lg hover:bg-[#032f68] transition-colors duration-300"
             >
@@ -85,6 +88,6 @@ export default function Home() {
             </button>
         </div>
       )}
-    </section>
+    </section> 
   );
 }
