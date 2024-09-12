@@ -1,11 +1,18 @@
-'use client'
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { BookOpen, FolderHeart, Lightbulb, Phone, User } from "lucide-react";
+'use client';
+import { useState } from 'react';
+import Image from 'next/image';
+import { BookOpen, FolderHeart, Lightbulb, Phone, User } from 'lucide-react';
+import About from '@/Components/About';
+import Resume from '@/Components/Resume';
+import Portfolio from '@/Components/Portfolio';
+import Blog from '@/Components/Blog';
+import Contact from '@/Components/Contact';
+
+
 
 export default function Home() {
   const [isCentered, setIsCentered] = useState(false);
+const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const toggleImageCenter = () => {
     setIsCentered(!isCentered);
@@ -16,19 +23,21 @@ export default function Home() {
       {/* Main Content */}
       <div
         className={`absolute flex w-full max-w-7xl transition-transform duration-700 ease-in-out ${
-          isCentered ? "translate-x-[-100%] opacity-0" : "translate-x-0 opacity-100"
+          isCentered ? 'translate-x-[-100%] opacity-0' : 'translate-x-0 opacity-100'
         }`}
       >
         <div className="w-1/2 flex flex-col space-y-10">
           <h1 className="text-8xl font-extrabold text-[#032668]">
-            Maaz <br />Nazeer
+            Maaz <br />
+            Nazeer
           </h1>
           <p className="text-[#032668] font-thin text-2xl mt-4 leading-loose">
             I am a website developer, based in Pakistan. I like to feed my cat in my spare time and build web projects that matter.
           </p>
           <div className="flex space-x-2">
             <a
-              href="/MuhammadMaaz.pdf" download
+              href="/MuhammadMaaz.pdf"
+              download
               className="group relative inline-block px-6 py-4 border-2 border-[#032668] text-[#032668] text-[13px] font-semibold overflow-hidden"
             >
               <span className="relative z-10 group-hover:text-white transition-colors duration-300">
@@ -58,8 +67,8 @@ export default function Home() {
             height={600}
             className={`max-w-full h-auto object-cover rounded-lg shadow-3d transition-transform duration-700 ease-in-out ${
               isCentered
-                ? "scale-150 fixed left-0 top-0 z-50 w-screen h-screen" // Expands and centers image
-                : "rotate-3d rotate-3d-hover" // Normal rotation state
+                ? 'scale-150 fixed left-0 top-0 z-50 w-screen h-screen' // Expands and centers image
+                : 'rotate-3d rotate-3d-hover' // Normal rotation state
             }`}
           />
         </div>
@@ -67,51 +76,68 @@ export default function Home() {
 
       {/* Full-Screen Image with Close Button */}
       {isCentered && (
-        <div className={`fixed inset-0 z-50 flex justify-center items-center bg-white transition-opacity duration-700 ease-in-out ${isCentered ? "opacity-80" : "opacity-0"}`}>
+        <div
+          className={`fixed inset-0 z-50 flex justify-center items-center bg-white transition-opacity duration-700 ease-in-out ${
+            isCentered ? 'opacity-80' : 'opacity-0'
+          }`}
+        >
           <div className="relative">
-  <Image
-    src="/Itachi-Uchiha-Naruto.avif"
-    alt="Profile Picture"
-    width={800}
-    height={800}
-    className="max-w-full h-auto object-cover rounded-lg transition-transform duration-700 ease-in-out"
-  />
-  <h1 className="absolute text-blue-800 bg-white px-4 py-1 rounded-full text-[13px] top-4 left-4">Muhammad Maaz</h1>
-  <h1 className="absolute text-white px-4 py-1 rounded-full text-[13px] top-12 left-2">Full Stack Developer</h1>
-  
-  {/* Icon Section */}
-  <div className="absolute bottom-4 left-4 flex space-x-12 text-white">
-    <Link href="/" className="flex flex-col items-center text-[10px]">
-      <User className="p-1" size={40} />
-      About Me
-    </Link>
-    <Link href="/" className="flex flex-col items-center text-[10px]">
-      <FolderHeart className="p-1" size={40} />
-      Resume
-    </Link>
-    <Link href="/" className="flex flex-col items-center text-[10px]">
-      <Lightbulb className="p-1" size={40} />
-      Portfolio
-    </Link>
-    <Link href="/" className="flex flex-col items-center text-[10px]">
-      <BookOpen className="p-1" size={40} />
-      Blog
-    </Link>
-    <Link href="/" className="flex flex-col items-center text-[10px]">
-      <Phone className="p-1" size={40} />
-      Contact
-    </Link>
-  </div>
-</div>
+            <Image
+              src="/Itachi-Uchiha-Naruto.avif"
+              alt="Profile Picture"
+              width={800}
+              height={800}
+              className="max-w-full h-auto object-cover rounded-lg transition-transform duration-700 ease-in-out"
+            />
+            <h1 className="absolute text-blue-800 bg-white px-4 py-1 rounded-full text-[13px] top-4 left-4">
+              Muhammad Maaz
+            </h1>
+            <h1 className="absolute text-white px-4 py-1 rounded-full text-[13px] top-12 left-2">
+              Full Stack Developer
+            </h1>
 
-            <button
-              onClick={toggleImageCenter}
-              className="absolute top-[10%] right-[20%] bg-[#032668] text-white text-lg px-4 py-2 rounded-full shadow-lg hover:bg-[#032f68] transition-colors duration-300"
-            >
-              ×
-            </button>
+            {/* Icon Section */}
+            <div className="absolute bottom-4 left-4 flex space-x-12 text-white">
+              <button onClick={() => setActiveSection('about')} className="flex flex-col items-center text-[10px] ">
+                <User className="p-1" size={40} />
+                About Me
+              </button>
+              <button onClick={() => setActiveSection('resume')} className="flex flex-col items-center text-[10px]">
+                <FolderHeart className="p-1" size={40} />
+                Resume
+              </button>
+              <button onClick={() => setActiveSection('portfolio')} className="flex flex-col items-center text-[10px]">
+                <Lightbulb className="p-1" size={40} />
+                Portfolio
+              </button>
+              <button onClick={() => setActiveSection('blog')} className="flex flex-col items-center text-[10px]">
+                <BookOpen className="p-1" size={40} />
+                Blog
+              </button>
+              <button onClick={() => setActiveSection('contact')} className="flex flex-col items-center text-[10px]">
+                <Phone className="p-1" size={40} />
+                Contact
+              </button>
+            </div>
+          </div>
+
+          <button
+            onClick={toggleImageCenter}
+            className="absolute top-[10%] right-[20%] bg-[#032668] text-white text-lg px-4 py-2 rounded-full shadow-lg hover:bg-[#032f68] transition-colors duration-300"
+          >
+            ×
+          </button>
         </div>
       )}
+
+      {/* Render Active Section Below the Image */}
+      <div className="mt-10">
+        {activeSection === 'about' && <About />}
+        {activeSection === 'resume' && <Resume />}
+        {activeSection === 'portfolio' && <Portfolio />}
+        {activeSection === 'blog' && <Blog />}
+        {activeSection === 'contact' && <Contact />}
+      </div>
     </section>
   );
 }
