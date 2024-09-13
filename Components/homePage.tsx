@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react'
 
-const homePage = () => {
+const HomePage = () => {
   const [isCentered, setIsCentered] = useState(false); // Image expand/collapse
   const toggleImageCenter = () => {
     setIsCentered(!isCentered);
@@ -100,4 +100,4 @@ const homePage = () => {
   )
 }
 
-export default homePage
+export default HomePage
