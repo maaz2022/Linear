@@ -17,13 +17,12 @@ const SideBar = () => {
   const handleSectionClick = (section: string) => {
     setActiveSection(section);
   };
-
   return (
     <>
       {/* Sidebar */}
       <motion.div
         animate={{ width: collapsed ? 80 : 240 }} 
-        className="fixed top-0 z-50 flex flex-col bg-gradient-to-b from-[#2D3E50] to-[#4965b3] h-screen items-center overflow-hidden shadow-lg"
+        className="fixed top-0 z-50 flex flex-col bg-gradient-to-b from-[#87aacf] to-[#051766] h-screen items-center overflow-hidden shadow-lg"
       >
         {/* Collapse/Expand Button */}
         <button
