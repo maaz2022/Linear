@@ -1,6 +1,6 @@
 import HomePage from "@/Components/homePage";
 
-export default function App() {
+export default function Home() {
   return (
     <div>
       <HomePage /> 
